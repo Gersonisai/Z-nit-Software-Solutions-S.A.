@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zénit Software Solutions S.A. | Desarrollo de Software en Bolivia</title>
+    <meta name="description" content="Zénit Software Solutions S.A. desarrolla software, aplicaciones móviles y soluciones tecnológicas para empresas en Bolivia. Parte del Grupo Zénit.">
+    <style>
+        :root {
+            --primary: #1a3a5f;
+            --secondary: #2c5a8a;
+            --accent: #e6a23c;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+            --tech-blue: #3a86ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--tech-blue));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+            font-size: 0.9rem;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26,58,95,0.8), rgba(58,134,255,0.8)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background-color: #d18a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-tech {
+            background-color: var(--tech-blue);
+            margin-left: 0.5rem;
+        }
+        
+        .btn-tech:hover {
+            background-color: #2a75e6;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--tech-blue);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .service-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        
+        .service-body {
+            padding: 1.2rem;
+        }
+        
+        .service-body h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--tech-blue);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        /* Technologies Section */
+        .tech-stack {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tech-item {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tech-item img {
+            max-width: 50px;
+            height: auto;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .company-info {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 1.5rem;
+        }
+        
+        .company-info h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .company-contact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .portfolio-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-img {
+            height: 200px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .portfolio-content {
+            padding: 1.2rem;
+        }
+        
+        .portfolio-content h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+        }
+        
+        .contact-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+        
+        .contact-message {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.6rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+        
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .hero {
+                padding: 5rem 0;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: row;
+            }
+            
+            .contact-container {
+                flex-direction: row;
+            }
+            
+            .footer-content {
+                flex-direction: row;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .logo h1 {
+                font-size: 1.3rem;
+            }
+            
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .btn-tech {
+                margin-left: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+            
+            .services-grid, .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>ZÉNIT <span>SOFTWARE</span> SOLUTIONS</h1>
+                </div>
+                <div class="mobile-menu" aria-label="Abrir menú">☰</div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#tecnologias">Tecnologías</a></li>
+                        <li><a href="#portafolio">Portafolio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="../index.html">Grupo Zénit</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+        <div class="container">
+            <h2 id="hero-title">Soluciones Tecnológicas para el Futuro de Bolivia</h2>
+            <p>Zénit Software Solutions S.A. desarrolla software, aplicaciones móviles y soluciones tecnológicas innovadoras para empresas en Bolivia y el extranjero.</p>
+            <div class="btn-container">
+                <a href="#portafolio" class="btn" aria-label="Ver nuestros proyectos">Ver Proyectos</a>
+                <a href="#contacto" class="btn btn-tech" aria-label="Solicitar cotización">Solicitar Cotización</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Ofrecemos una amplia gama de servicios tecnológicos adaptados a las necesidades de nuestros clientes</p>
+            </div>
+            <div class="services-grid">
+                <!-- Desarrollo de Software -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>Desarrollo de Software</h3>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-icon">💻</div>
+                        <h4>Soluciones a Medida</h4>
+                        <p>Desarrollamos software empresarial personalizado que se adapta a los procesos específicos de tu organización, aumentando la eficiencia y productividad.</p>
+                    </div>
+                </div>
+                
+                <!-- Aplicaciones Móviles -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>Aplicaciones Móviles</h3>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-icon">📱</div>
+                        <h4>iOS y Android</h4>
+                        <p>Creamos aplicaciones móviles nativas e híbridas para iOS y Android, con interfaces intuitivas y experiencias de usuario excepcionales.</p>
+                    </div>
+                </div>
+                
+                <!-- Consultoría Digital -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>Consultoría Digital</h3>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-icon">🔍</div>
+                        <h4>Transformación Digital</h4>
+                        <p>Asesoramos a empresas en su proceso de transformación digital, identificando oportunidades y diseñando estrategias tecnológicas efectivas.</p>
+                    </div>
+                </div>
+                
+                <!-- Soluciones Empresariales -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>Soluciones Empresariales</h3>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-icon">🏢</div>
+                        <h4>Automatización de Procesos</h4>
+                        <p>Implementamos sistemas de automatización, inteligencia de negocios y digitalización para optimizar operaciones empresariales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnologías -->
+    <section id="tecnologias" class="technologies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tecnologías que Utilizamos</h2>
+                <p>Trabajamos con las tecnologías más modernas y eficientes del mercado</p>
+            </div>
+            <div class="tech-stack">
+                <h3 style="color: var(--primary); text-align: center; margin-bottom: 1rem;">Nuestro Stack Tecnológico</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div>JavaScript</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>Python</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>Java</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>React</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>Node.js</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>React Native</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>Flutter</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>MySQL</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>MongoDB</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>AWS</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>Docker</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>Git</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portafolio -->
+    <section id="portafolio" class="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestro Portafolio</h2>
+                <p>Algunos de los proyectos que hemos desarrollado para nuestros clientes</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-img" style="background-color: #e3f2fd;">
+                        SISTEMA DE GESTIÓN EMPRESARIAL
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>Sistema de Gestión Integral</h4>
+                        <p>Desarrollo de un sistema completo de gestión empresarial para una compañía de retail en Santa Cruz.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img" style="background-color: #f3e5f5;">
+                        APLICACIÓN MÓVIL DE ENTREGAS
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>App de Logística</h4>
+                        <p>Aplicación móvil para seguimiento de entregas en tiempo real desarrollada para una empresa de transporte.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img" style="background-color: #e8f5e9;">
+                        PLATAFORMA E-COMMERCE
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>Tienda Online</h4>
+                        <p>Plataforma de e-commerce con pasarela de pagos integrada para una cadena de farmacias en La Paz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre Nosotros</h2>
+                <p>Conozca más sobre nuestra empresa y nuestro compromiso con la innovación tecnológica</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Nuestra Misión</h3>
+                    <p>Zénit Software Solutions S.A. es una empresa especializada en desarrollo de software y soluciones tecnológicas, constituida como parte del Grupo Zénit S.A. Nuestra misión es proporcionar soluciones tecnológicas innovadoras que impulsen la transformación digital de empresas en Bolivia.</p>
+                    <p>Ofrecemos servicios tanto a nuestra sociedad matriz (GRUPO ZÉNIT S.A.), a sus filiales y a clientes externos, asegurando la más alta calidad en todos nuestros desarrollos.</p>
+                    
+                    <div class="company-info">
+                        <h3>Información Corporativa</h3>
+                        <p><strong>Zénit Software Solutions S.A.</strong> es una sociedad anónima constituida bajo las leyes de Bolivia.</p>
+                        <p>Forma parte del holding empresarial <strong>GRUPO ZÉNIT S.A.</strong>, que ejerce la dirección estratégica y supervisión sobre nuestras operaciones.</p>
+                        <div class="company-contact">
+                            <span>📍</span>
+                            <p><strong>Zonas de Operación:</strong> La Paz, Cochabamba, Santa Cruz</p>
+                        </div>
+                        <div class="company-contact">
+                            <span>💼</span>
+                            <p><strong>Inversión Inicial:</strong> Bs. 522,000 | <strong>Costo Operativo Mensual:</strong> Bs. 90,480</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contacto</h2>
+                <p>Póngase en contacto con nosotros para más información sobre nuestros servicios</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 style="color:var(--primary); margin-bottom:1.5rem;">Información de Contacto</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Oficinas Principales</h4>
+                            <p>La Paz, Cochabamba y Santa Cruz, Bolivia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email Corporativo</h4>
+                            <p><a href="mailto:gersonisaimachuaoniava@gmail.com">gersonisaimachuaoniava@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">👤</div>
+                        <div>
+                            <h4>Contacto Principal</h4>
+                            <p>Gerson Isai Machua Oniava<br>Presidente del Directorio - Grupo Zénit</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💻</div>
+                        <div>
+                            <h4>Especialización</h4>
+                            <p>Desarrollo de software, aplicaciones móviles, consultoría tecnológica</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 style="color:var(--primary); margin-bottom:1.5rem;">Proceso de Desarrollo</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">1</div>
+                        <div>
+                            <h4>Análisis de Requerimientos</h4>
+                            <p>Comprendemos tus necesidades y definimos los objetivos del proyecto</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">2</div>
+                        <div>
+                            <h4>Diseño y Planificación</h4>
+                            <p>Creamos wireframes, prototipos y planificamos el desarrollo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">3</div>
+                        <div>
+                            <h4>Desarrollo y Pruebas</h4>
+                            <p>Implementamos la solución y realizamos pruebas exhaustivas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">4</div>
+                        <div>
+                            <h4>Implementación y Soporte</h4>
+                            <p>Desplegamos la solución y proporcionamos mantenimiento continuo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-message">
+                <h3 style="color:var(--primary); margin-bottom:1rem;">¿Tienes un proyecto en mente?</h3>
+                <p>Para obtener información detallada sobre nuestros servicios, solicitar una cotización o programar una reunión, por favor contáctenos directamente a través de nuestro correo electrónico.</p>
+                <a href="mailto:gersonisaimachuaoniava@gmail.com" class="btn btn-tech" style="margin-top:1.5rem;" aria-label="Enviar correo de interés">Iniciar Proyecto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ZÉNIT SOFTWARE SOLUTIONS S.A.</h3>
+                    <p>Empresa especializada en desarrollo de software, aplicaciones móviles y soluciones tecnológicas, parte del Grupo Zénit S.A.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#tecnologias">Tecnologías</a></li>
+                        <li><a href="#portafolio">Portafolio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="../index.html">Grupo Zénit</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li>📍 La Paz, Cochabamba, Santa Cruz, Bolivia</li>
+                        <li>📧 <a href="mailto:gersonisaimachuaoniava@gmail.com" style="color:#ccc; text-decoration:none;">gersonisaimachuaoniava@gmail.com</a></li>
+                        <li>👤 Gerson Isai Machua Oniava</li>
+                        <li>💻 Especialistas en desarrollo de software</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ZÉNIT SOFTWARE SOLUTIONS S.A. - Todos los derechos reservados | Parte de GRUPO ZÉNIT S.A.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a, .btn').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (!href || href.startsWith('mailto:') || href.startsWith('http')) return;
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                if (!targetElement) return;
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
