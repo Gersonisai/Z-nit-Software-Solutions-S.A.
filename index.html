@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zénit Software Solutions S.A. | Desarrollo de Software en Bolivia</title>
-    <meta name="description" content="Zénit Software Solutions S.A. desarrolla software, aplicaciones móviles y soluciones tecnológicas para empresas en Bolivia. Parte del Grupo Zénit.">
+    <meta name="description" content="Zénit Software Solutions S.A. desarrolla software, apps móviles y soluciones tecnológicas para el Grupo Zénit S.A. y clientes externos en Bolivia y el extranjero.">
+    <meta name="theme-color" content="#1a3a5f" />
+
+    <!-- Metadatos sociales -->
+    <meta property="og:title" content="Zénit Software Solutions S.A." />
+    <meta property="og:description" content="Soluciones tecnológicas para el futuro de Bolivia. Desarrollo de software, apps móviles, automatización y consultoría digital." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://gersonisai.github.io/Z-nit-Software-Solutions-S.A./og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <style>
         :root {
             --primary: #1a3a5f;
             --secondary: #2c5a8a;
-            --accent: #e6a23c;
+            --accent: #28a745;
             --light: #f8f9fa;
             --dark: #343a40;
             --success: #28a745;
-            --tech-blue: #3a86ff;
+            --software-blue: #1976d2;
+            --tech-purple: #6f42c1;
         }
         
         * {
@@ -35,7 +45,7 @@
         
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--tech-blue));
+            background: linear-gradient(135deg, var(--primary), var(--software-blue));
             color: white;
             padding: 1rem 0;
             position: sticky;
@@ -119,7 +129,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26,58,95,0.8), rgba(58,134,255,0.8)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(26,58,95,0.8), rgba(25,118,210,0.8)), url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -141,7 +151,7 @@
         
         .btn {
             display: inline-block;
-            background-color: var(--accent);
+            background-color: var(--software-blue);
             color: white;
             padding: 0.8rem 1.5rem;
             border-radius: 30px;
@@ -154,18 +164,26 @@
         }
         
         .btn:hover {
-            background-color: #d18a1a;
+            background-color: #1565c0;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .btn-tech {
-            background-color: var(--tech-blue);
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
             margin-left: 0.5rem;
+            margin-top: 0.5rem;
+            color: white;
+            padding: 0.75rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-block;
         }
         
-        .btn-tech:hover {
-            background-color: #2a75e6;
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
         }
         
         /* Section Styles */
@@ -194,7 +212,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background-color: var(--accent);
+            background-color: var(--software-blue);
         }
         
         .section-title p {
@@ -217,7 +235,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--tech-blue);
+            border-top: 4px solid var(--software-blue);
         }
         
         .service-card:hover {
@@ -244,42 +262,112 @@
         
         .service-icon {
             font-size: 2.5rem;
-            color: var(--tech-blue);
+            color: var(--software-blue);
             margin-bottom: 1rem;
             text-align: center;
         }
         
         /* Technologies Section */
-        .tech-stack {
-            background-color: var(--light);
-            padding: 2rem;
-            border-radius: 10px;
-            margin-top: 2rem;
-        }
-        
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
         
-        .tech-item {
+        .tech-card {
             background-color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s;
         }
         
-        .tech-item:hover {
+        .tech-card:hover {
             transform: translateY(-5px);
         }
         
-        .tech-item img {
-            max-width: 50px;
-            height: auto;
+        .tech-content {
+            padding: 1.2rem;
+        }
+        
+        .tech-content h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background-color: #e9ecef;
+            color: var(--primary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .step-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--software-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+        
+        /* Links Section */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .link-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .link-content {
+            padding: 1.2rem;
+        }
+        
+        .link-content h4 {
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
         
@@ -313,44 +401,6 @@
             align-items: center;
             gap: 10px;
             margin-top: 1rem;
-        }
-        
-        /* Portfolio Section */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .portfolio-item {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .portfolio-img {
-            height: 200px;
-            background-color: #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        .portfolio-content {
-            padding: 1.2rem;
-        }
-        
-        .portfolio-content h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
         }
         
         /* Contact Section */
@@ -514,7 +564,7 @@
                 gap: 0.5rem;
             }
             
-            .btn-tech {
+            .btn-outline {
                 margin-left: 0;
             }
         }
@@ -524,12 +574,8 @@
                 width: 95%;
             }
             
-            .services-grid, .portfolio-grid {
+            .services-grid, .tech-grid, .process-steps, .links-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .tech-grid {
-                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -540,7 +586,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <h1>ZÉNIT <span>SOFTWARE</span> SOLUTIONS</h1>
+                    <h1>ZÉNIT <span>SOFTWARE</span> S.A.</h1>
                 </div>
                 <div class="mobile-menu" aria-label="Abrir menú">☰</div>
                 <nav>
@@ -549,9 +595,12 @@
                         <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#tecnologias">Tecnologías</a></li>
                         <li><a href="#portafolio">Portafolio</a></li>
+                        <li><a href="#proceso">Proceso</a></li>
+                        <li><a href="#herramientas">Herramientas Propias</a></li>
                         <li><a href="#nosotros">Nosotros</a></li>
                         <li><a href="#contacto">Contacto</a></li>
-                        <li><a href="../index.html">Grupo Zénit</a></li>
+                        <!-- CORREGIDO: Enlace del Grupo Zénit -->
+                        <li><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank">GRUPO ZÉNIT</a></li>
                     </ul>
                 </nav>
             </div>
@@ -562,10 +611,10 @@
     <section id="inicio" class="hero" aria-labelledby="hero-title">
         <div class="container">
             <h2 id="hero-title">Soluciones Tecnológicas para el Futuro de Bolivia</h2>
-            <p>Zénit Software Solutions S.A. desarrolla software, aplicaciones móviles y soluciones tecnológicas innovadoras para empresas en Bolivia y el extranjero.</p>
+            <p>Zénit Software Solutions S.A. diseña y desarrolla software a medida, aplicaciones móviles y plataformas web para el Grupo Zénit S.A. y clientes externos. Priorizamos seguridad, rendimiento y escalabilidad.</p>
             <div class="btn-container">
-                <a href="#portafolio" class="btn" aria-label="Ver nuestros proyectos">Ver Proyectos</a>
-                <a href="#contacto" class="btn btn-tech" aria-label="Solicitar cotización">Solicitar Cotización</a>
+                <a href="#contacto" class="btn" aria-label="Iniciar proyecto con nosotros">Iniciar Proyecto</a>
+                <a href="#portafolio" class="btn btn-outline" aria-label="Ver nuestro portafolio">Ver Portafolio</a>
             </div>
         </div>
     </section>
@@ -575,7 +624,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Nuestros Servicios</h2>
-                <p>Ofrecemos una amplia gama de servicios tecnológicos adaptados a las necesidades de nuestros clientes</p>
+                <p>Ofrecemos una gama completa de servicios para acelerar tu transformación digital</p>
             </div>
             <div class="services-grid">
                 <!-- Desarrollo de Software -->
@@ -585,8 +634,14 @@
                     </div>
                     <div class="service-body">
                         <div class="service-icon">💻</div>
-                        <h4>Soluciones a Medida</h4>
-                        <p>Desarrollamos software empresarial personalizado que se adapta a los procesos específicos de tu organización, aumentando la eficiencia y productividad.</p>
+                        <h4>Soluciones Empresariales</h4>
+                        <p>Soluciones empresariales a medida que se adaptan a tus procesos y crecen con tu negocio.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">SaaS</span>
+                            <span class="tech-tag">Backoffice</span>
+                            <span class="tech-tag">APIs</span>
+                            <span class="tech-tag">Integraciones</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -597,8 +652,14 @@
                     </div>
                     <div class="service-body">
                         <div class="service-icon">📱</div>
-                        <h4>iOS y Android</h4>
-                        <p>Creamos aplicaciones móviles nativas e híbridas para iOS y Android, con interfaces intuitivas y experiencias de usuario excepcionales.</p>
+                        <h4>Apps Nativas e Híbridas</h4>
+                        <p>Apps nativas e híbridas para iOS y Android con experiencias fluidas y seguras.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">iOS</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Flutter</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -609,20 +670,68 @@
                     </div>
                     <div class="service-body">
                         <div class="service-icon">🔍</div>
-                        <h4>Transformación Digital</h4>
-                        <p>Asesoramos a empresas en su proceso de transformación digital, identificando oportunidades y diseñando estrategias tecnológicas efectivas.</p>
+                        <h4>Estrategia Digital</h4>
+                        <p>Diagnóstico, estrategia y roadmap de transformación digital con foco en resultados.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Arquitectura</span>
+                            <span class="tech-tag">DevOps</span>
+                            <span class="tech-tag">Cloud</span>
+                            <span class="tech-tag">BI & Data</span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Soluciones Empresariales -->
+                <!-- Automatización de Procesos -->
                 <div class="service-card">
                     <div class="service-header">
-                        <h3>Soluciones Empresariales</h3>
+                        <h3>Automatización de Procesos</h3>
                     </div>
                     <div class="service-body">
-                        <div class="service-icon">🏢</div>
-                        <h4>Automatización de Procesos</h4>
-                        <p>Implementamos sistemas de automatización, inteligencia de negocios y digitalización para optimizar operaciones empresariales.</p>
+                        <div class="service-icon">⚙️</div>
+                        <h4>Digitalización de Flujos</h4>
+                        <p>Digitalizamos y orquestamos flujos críticos con integraciones, bots y analítica.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">RPA</span>
+                            <span class="tech-tag">ETL</span>
+                            <span class="tech-tag">Dashboards</span>
+                            <span class="tech-tag">Alerting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ciberseguridad -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>Ciberseguridad</h3>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-icon">🔒</div>
+                        <h4>Seguridad y Cumplimiento</h4>
+                        <p>Buenas prácticas de seguridad desde el diseño, pruebas y monitoreo continuo.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">OWASP</span>
+                            <span class="tech-tag">Hardening</span>
+                            <span class="tech-tag">Pentesting</span>
+                            <span class="tech-tag">Backups</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soporte y Mantenimiento -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>Soporte y Mantenimiento</h3>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-icon">🔧</div>
+                        <h4>SLA y SRE</h4>
+                        <p>Acuerdos de nivel de servicio (SLA), mejoras evolutivas y soporte funcional.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">SLA</span>
+                            <span class="tech-tag">SRE</span>
+                            <span class="tech-tag">Monitoreo</span>
+                            <span class="tech-tag">Capacitación</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -633,47 +742,43 @@
     <section id="tecnologias" class="technologies">
         <div class="container">
             <div class="section-title">
-                <h2>Tecnologías que Utilizamos</h2>
-                <p>Trabajamos con las tecnologías más modernas y eficientes del mercado</p>
+                <h2>Tecnologías</h2>
+                <p>Elegimos el stack adecuado para cada caso de uso, priorizando mantenibilidad y velocidad</p>
             </div>
-            <div class="tech-stack">
-                <h3 style="color: var(--primary); text-align: center; margin-bottom: 1rem;">Nuestro Stack Tecnológico</h3>
-                <div class="tech-grid">
-                    <div class="tech-item">
-                        <div>JavaScript</div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-content">
+                        <h4>Frontend</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Vite</span>
+                        </div>
                     </div>
-                    <div class="tech-item">
-                        <div>Python</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-content">
+                        <h4>Backend</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">REST / GraphQL</span>
+                        </div>
                     </div>
-                    <div class="tech-item">
-                        <div>Java</div>
-                    </div>
-                    <div class="tech-item">
-                        <div>React</div>
-                    </div>
-                    <div class="tech-item">
-                        <div>Node.js</div>
-                    </div>
-                    <div class="tech-item">
-                        <div>React Native</div>
-                    </div>
-                    <div class="tech-item">
-                        <div>Flutter</div>
-                    </div>
-                    <div class="tech-item">
-                        <div>MySQL</div>
-                    </div>
-                    <div class="tech-item">
-                        <div>MongoDB</div>
-                    </div>
-                    <div class="tech-item">
-                        <div>AWS</div>
-                    </div>
-                    <div class="tech-item">
-                        <div>Docker</div>
-                    </div>
-                    <div class="tech-item">
-                        <div>Git</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-content">
+                        <h4>Datos & DevOps</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">CI/CD</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -684,37 +789,155 @@
     <section id="portafolio" class="portfolio">
         <div class="container">
             <div class="section-title">
-                <h2>Nuestro Portafolio</h2>
-                <p>Algunos de los proyectos que hemos desarrollado para nuestros clientes</p>
+                <h2>Portafolio</h2>
+                <p>Algunos proyectos representativos construidos por nuestro equipo</p>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-img" style="background-color: #e3f2fd;">
-                        SISTEMA DE GESTIÓN EMPRESARIAL
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>Retail</h3>
                     </div>
-                    <div class="portfolio-content">
+                    <div class="service-body">
+                        <div class="service-icon">🏪</div>
                         <h4>Sistema de Gestión Integral</h4>
-                        <p>Desarrollo de un sistema completo de gestión empresarial para una compañía de retail en Santa Cruz.</p>
+                        <p>ERP modular para operaciones, inventario, ventas y finanzas, desplegado en entornos híbridos.</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-img" style="background-color: #f3e5f5;">
-                        APLICACIÓN MÓVIL DE ENTREGAS
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>Logística</h3>
                     </div>
-                    <div class="portfolio-content">
-                        <h4>App de Logística</h4>
-                        <p>Aplicación móvil para seguimiento de entregas en tiempo real desarrollada para una empresa de transporte.</p>
+                    <div class="service-body">
+                        <div class="service-icon">🚚</div>
+                        <h4>App de Entregas en Tiempo Real</h4>
+                        <p>Seguimiento de rutas, notificaciones y dashboard de performance para flotas de transporte.</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-img" style="background-color: #e8f5e9;">
-                        PLATAFORMA E-COMMERCE
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>E‑Commerce</h3>
                     </div>
-                    <div class="portfolio-content">
+                    <div class="service-body">
+                        <div class="service-icon">🛒</div>
                         <h4>Tienda Online</h4>
-                        <p>Plataforma de e-commerce con pasarela de pagos integrada para una cadena de farmacias en La Paz.</p>
+                        <p>Catálogo, carrito, pasarela de pagos y conciliación para cadena de farmacias.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso -->
+    <section id="proceso" class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Proceso de Desarrollo</h2>
+                <p>Nuestra metodología garantiza resultados de calidad en cada proyecto</p>
+            </div>
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Análisis de Requerimientos</h4>
+                    <p>Entendemos objetivos, restricciones y KPIs. Priorizamos alcance y definimos criterios de éxito.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Diseño & Planificación</h4>
+                    <p>Arquitectura, prototipos y roadmap iterativo con entregas tempranas de valor.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Desarrollo & Pruebas</h4>
+                    <p>Implementación, revisiones de código y pruebas automáticas + manuales.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>Despliegue & Soporte</h4>
+                    <p>Pipelines CI/CD, observabilidad y mantenimiento continuo con SLAs claros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Herramientas y Sitios Propios -->
+    <section id="herramientas" class="tools">
+        <div class="container">
+            <div class="section-title">
+                <h2>Herramientas y Sitios Web Propios</h2>
+                <p>En <strong>Grupo Zénit S.A.</strong>, todas las plataformas digitales, herramientas tecnológicas y sitios web que utilizamos son <strong>desarrollos propios</strong> por equipos internos de Zénit Software Solutions S.A.</p>
+            </div>
+            
+            <div class="links-grid">
+                <!-- Yasikari Web -->
+                <a href="https://gersonisai.github.io/yasikari-web/" target="_blank" class="link-card">
+                    <div class="link-content">
+                        <h4>Yasikari Web</h4>
+                        <p>Plataforma digital y proyectos web del Grupo Zénit</p>
+                    </div>
+                </a>
+                
+                <!-- Grupo Zénit -->
+                <a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank" class="link-card">
+                    <div class="link-content">
+                        <h4>Grupo Zénit S.A.</h4>
+                        <p>Holding empresarial y dirección estratégica</p>
+                    </div>
+                </a>
+                
+                <!-- Zénit Financiera -->
+                <a href="https://gersonisai.github.io/Z-nit-Financiera-S.A./" target="_blank" class="link-card">
+                    <div class="link-content">
+                        <h4>Zénit Financiera S.A.</h4>
+                        <p>Soluciones de inversión, crédito y gestión de capital</p>
+                    </div>
+                </a>
+                
+                <!-- Zénit Software Solutions -->
+                <a href="https://gersonisai.github.io/Z-nit-Software-Solutions-S.A./" target="_blank" class="link-card">
+                    <div class="link-content">
+                        <h4>Zénit Software Solutions S.A.</h4>
+                        <p>Desarrollo de software y consultoría tecnológica</p>
+                    </div>
+                </a>
+                
+                <!-- Zénit Agro Industrias -->
+                <a href="https://gersonisai.github.io/Z-nit-Agro-Industrias-S.A./" target="_blank" class="link-card">
+                    <div class="link-content">
+                        <h4>Zénit Agro Industrias S.A.</h4>
+                        <p>Producción y comercialización agrícola</p>
+                    </div>
+                </a>
+                
+                <!-- Zénit Cargo Transport -->
+                <a href="https://gersonisai.github.io/Z-nit-Cargo-Transport-S.A./" target="_blank" class="link-card">
+                    <div class="link-content">
+                        <h4>Zénit Cargo Transport S.A.</h4>
+                        <p>Transporte de carga y soluciones logísticas</p>
+                    </div>
+                </a>
+                
+                <!-- Zénit Hospitality -->
+                <a href="https://gersonisai.github.io/Z-nit-Hospitality-Group-S.A./" target="_blank" class="link-card">
+                    <div class="link-content">
+                        <h4>Zénit Hospitality Group S.A.</h4>
+                        <p>Gestión de hoteles y servicios turísticos</p>
+                    </div>
+                </a>
+                
+                <!-- Zénit Pharma -->
+                <a href="https://gersonisai.github.io/Z-nit-Pharma-S.A./" target="_blank" class="link-card">
+                    <div class="link-content">
+                        <h4>Zénit Pharma S.A.</h4>
+                        <p>Productos farmacéuticos y equipos médicos</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="color: #6c757d;">Para conocer el perfil del Presidente del Directorio, Gerson Isai Machua Oniava, visite su sitio web oficial.</p>
+                <a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" target="_blank" class="btn btn-outline" style="border: 2px solid var(--primary); color: var(--primary); background-color: transparent; margin-top: 1rem; display: inline-block;">
+                    Perfil de Gerson Isai Machua Oniava
+                </a>
             </div>
         </div>
     </section>
@@ -724,25 +947,29 @@
         <div class="container">
             <div class="section-title">
                 <h2>Sobre Nosotros</h2>
-                <p>Conozca más sobre nuestra empresa y nuestro compromiso con la innovación tecnológica</p>
+                <p>Conozca más sobre nuestra empresa y nuestro compromiso con la tecnología en Bolivia</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <h3>Nuestra Misión</h3>
-                    <p>Zénit Software Solutions S.A. es una empresa especializada en desarrollo de software y soluciones tecnológicas, constituida como parte del Grupo Zénit S.A. Nuestra misión es proporcionar soluciones tecnológicas innovadoras que impulsen la transformación digital de empresas en Bolivia.</p>
-                    <p>Ofrecemos servicios tanto a nuestra sociedad matriz (GRUPO ZÉNIT S.A.), a sus filiales y a clientes externos, asegurando la más alta calidad en todos nuestros desarrollos.</p>
+                    <p>Zénit Software Solutions S.A. es una empresa especializada en el desarrollo de software, aplicaciones móviles y soluciones tecnológicas, constituida como parte del Grupo Zénit S.A.</p>
+                    <p>Nuestra misión es impulsar la innovación tecnológica en Bolivia con soluciones de software que generen impacto real en productividad, competitividad y calidad de vida.</p>
                     
                     <div class="company-info">
                         <h3>Información Corporativa</h3>
                         <p><strong>Zénit Software Solutions S.A.</strong> es una sociedad anónima constituida bajo las leyes de Bolivia.</p>
-                        <p>Forma parte del holding empresarial <strong>GRUPO ZÉNIT S.A.</strong>, que ejerce la dirección estratégica y supervisión sobre nuestras operaciones.</p>
+                        <p>Forma parte del holding empresarial <strong><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank" style="color: var(--primary); text-decoration: underline;">GRUPO ZÉNIT S.A.</a></strong>, que ejerce la dirección estratégica y supervisión sobre nuestras operaciones.</p>
                         <div class="company-contact">
                             <span>📍</span>
-                            <p><strong>Zonas de Operación:</strong> La Paz, Cochabamba, Santa Cruz</p>
+                            <p><strong>Zonas de Operación:</strong> La Paz, Cochabamba, Santa Cruz (Eje troncal)</p>
                         </div>
                         <div class="company-contact">
                             <span>💼</span>
-                            <p><strong>Inversión Inicial:</strong> Bs. 522,000 | <strong>Costo Operativo Mensual:</strong> Bs. 90,480</p>
+                            <p><strong>Inversión Inicial:</strong> Bs. 522,000</p>
+                        </div>
+                        <div class="company-contact">
+                            <span>🧮</span>
+                            <p><strong>Costo Operativo Mensual:</strong> Bs. 90,480</p>
                         </div>
                     </div>
                 </div>
@@ -755,7 +982,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Contacto</h2>
-                <p>Póngase en contacto con nosotros para más información sobre nuestros servicios</p>
+                <p>Póngase en contacto con nosotros para más información sobre nuestros servicios y soluciones</p>
             </div>
             
             <div class="contact-container">
@@ -765,8 +992,8 @@
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
                         <div>
-                            <h4>Oficinas Principales</h4>
-                            <p>La Paz, Cochabamba y Santa Cruz, Bolivia</p>
+                            <h4>Ubicaciones</h4>
+                            <p>La Paz, Cochabamba, Santa Cruz, Bolivia</p>
                         </div>
                     </div>
                     
@@ -782,7 +1009,7 @@
                         <div class="contact-icon">👤</div>
                         <div>
                             <h4>Contacto Principal</h4>
-                            <p>Gerson Isai Machua Oniava<br>Presidente del Directorio - Grupo Zénit</p>
+                            <p>Gerson Isai Machua Oniava<br>Presidente del Directorio - Grupo Zénit (<a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" target="_blank" style="color: var(--software-blue); text-decoration: underline;">Sitio Web</a>)</p>
                         </div>
                     </div>
                     
@@ -790,52 +1017,44 @@
                         <div class="contact-icon">💻</div>
                         <div>
                             <h4>Especialización</h4>
-                            <p>Desarrollo de software, aplicaciones móviles, consultoría tecnológica</p>
+                            <p>Desarrollo de software, apps móviles y consultoría tecnológica</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-info">
-                    <h3 style="color:var(--primary); margin-bottom:1.5rem;">Proceso de Desarrollo</h3>
+                    <h3 style="color:var(--primary); margin-bottom:1.5rem;">Preguntas Frecuentes</h3>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">1</div>
+                        <div class="contact-icon">❓</div>
                         <div>
-                            <h4>Análisis de Requerimientos</h4>
-                            <p>Comprendemos tus necesidades y definimos los objetivos del proyecto</p>
+                            <h4>¿Desarrollan únicamente para el holding?</h4>
+                            <p>No. Atendemos tanto a nuestra sociedad matriz y filiales como a clientes externos.</p>
                         </div>
                     </div>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">2</div>
+                        <div class="contact-icon">❓</div>
                         <div>
-                            <h4>Diseño y Planificación</h4>
-                            <p>Creamos wireframes, prototipos y planificamos el desarrollo</p>
+                            <h4>¿Las herramientas y sitios son propios?</h4>
+                            <p>Sí. Todos los activos digitales del holding son desarrollados internamente por Zénit Software Solutions S.A.</p>
                         </div>
                     </div>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">3</div>
+                        <div class="contact-icon">❓</div>
                         <div>
-                            <h4>Desarrollo y Pruebas</h4>
-                            <p>Implementamos la solución y realizamos pruebas exhaustivas</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">4</div>
-                        <div>
-                            <h4>Implementación y Soporte</h4>
-                            <p>Desplegamos la solución y proporcionamos mantenimiento continuo</p>
+                            <h4>¿Ofrecen mantenimiento?</h4>
+                            <p>Sí. Contamos con planes de soporte y SLAs según la criticidad del servicio.</p>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="contact-message">
-                <h3 style="color:var(--primary); margin-bottom:1rem;">¿Tienes un proyecto en mente?</h3>
-                <p>Para obtener información detallada sobre nuestros servicios, solicitar una cotización o programar una reunión, por favor contáctenos directamente a través de nuestro correo electrónico.</p>
-                <a href="mailto:gersonisaimachuaoniava@gmail.com" class="btn btn-tech" style="margin-top:1.5rem;" aria-label="Enviar correo de interés">Iniciar Proyecto</a>
+                <h3 style="color:var(--primary); margin-bottom:1rem;">¿Interesado en Nuestros Servicios?</h3>
+                <p>Para obtener información detallada sobre nuestros servicios, cotizaciones o oportunidades de colaboración, por favor contáctenos directamente a través de nuestro correo electrónico.</p>
+                <a href="mailto:gersonisaimachuaoniava@gmail.com" class="btn" style="margin-top:1.5rem;" aria-label="Enviar correo de interés">Contactar Ahora</a>
             </div>
         </div>
     </section>
@@ -845,8 +1064,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>ZÉNIT SOFTWARE SOLUTIONS S.A.</h3>
+                    <h3>ZÉNIT SOFTWARE S.A.</h3>
                     <p>Empresa especializada en desarrollo de software, aplicaciones móviles y soluciones tecnológicas, parte del Grupo Zénit S.A.</p>
+                    <p style="margin-top: 10px;">Presidente: <a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" target="_blank" style="color: var(--accent); text-decoration: none;">Gerson Isai Machua Oniava</a></p>
                 </div>
                 
                 <div class="footer-column">
@@ -856,9 +1076,12 @@
                         <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#tecnologias">Tecnologías</a></li>
                         <li><a href="#portafolio">Portafolio</a></li>
+                        <li><a href="#proceso">Proceso</a></li>
+                        <li><a href="#herramientas">Herramientas Propias</a></li>
                         <li><a href="#nosotros">Nosotros</a></li>
                         <li><a href="#contacto">Contacto</a></li>
-                        <li><a href="../index.html">Grupo Zénit</a></li>
+                        <!-- CORREGIDO: Enlace del Grupo Zénit en el footer -->
+                        <li><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank">GRUPO ZÉNIT (Holding)</a></li>
                     </ul>
                 </div>
                 
@@ -889,14 +1112,17 @@
         document.querySelectorAll('nav a, .btn').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                if (!href || href.startsWith('mailto:') || href.startsWith('http')) return;
+                // Allow mailto: and absolute external links (http/https) to bypass smooth scroll
+                if (!href || href.startsWith('mailto:') || href.startsWith('http')) return; 
                 e.preventDefault();
                 const targetElement = document.querySelector(href);
                 if (!targetElement) return;
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
+                    // Adjust scroll position to account for sticky header
+                    top: targetElement.offsetTop - 80, 
                     behavior: 'smooth'
                 });
+                // Close mobile menu after clicking a link
                 document.querySelector('nav').classList.remove('active');
             });
         });
